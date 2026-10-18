@@ -1,0 +1,11 @@
+Errors:
+Line 1: inappropriate label name
+Line 5: missing operand
+Line 7: unexpected operand : do need to need any operand for : add
+Line 9: unknown mnemonic
+Line 11: no such label : missing_label
+Line 13: extra on end of line
+Line 13: unknown mnemonic
+Line 18: duplicate label definition
+Line 21: no such label : hello
+Line 23: SET must follow label

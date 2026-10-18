@@ -1,0 +1,11 @@
+Errors:
+Line 8: duplicate label definition
+Line 9: no such label : nonesuch
+Line 10: no such label : 08ge
+Line 11: missing operand
+Line 12: unexpected operand : do need to need any operand for : add
+Line 13: extra on end of line
+Line 13: no such label : 5,
+Line 14: inappropriate label name
+Line 15: unknown mnemonic
+Line 16: unknown mnemonic

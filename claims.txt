@@ -1,0 +1,28 @@
+Student Name: Anushtup Kumar
+User ID: 2501CS32
+Declaration of Authorship: I declare that this code is my own work.
+
+The Assembler Part
+- Uses a single routine (parseStatement) for both passes, resetting the file pointer between passes.
+- Diagnoses label errors including duplicate definitions, missing labels, and bogus mnemonics.
+- Produces an advanced listing file showing the memory address, machine code in hex, and original instruction.
+- Uses an unordered_map as a table for instruction names and expected operands.
+- Successfully assembles the provided test programs.
+- Includes additional test programs for both success (math operations) and failure (syntax errors) with brief explanatory comments.
+- Implements the SET pseudo-instruction.
+- Implements and demonstrates the new IITPSx mul and div instructions
+
+Bubble Sort Program
+- The provided bubblesort.asm successfully assembles.
+- The bubble sort correctly executes in the emulator and sorts the data in memory.
+
+The Emulator Part
+- Successfully loads the binary .o object file into the memory vector.
+- Produces a final register state dump and dump memory (first 1024 address).
+- Correctly executes the test programs.
+- Executes mul and div correctly, explicitly detecting and halting on division by zero.
+- Detects errant programs by halting if the PC exceeds the loaded instruction count or memory bounds.
+
+CMakeFile:
+use to run asm.cpp and then emu.cpp: mingw32-make run FILE=[FILE_PATH]
+eg : mingw32-make run FILE=./bubble_sort.asm

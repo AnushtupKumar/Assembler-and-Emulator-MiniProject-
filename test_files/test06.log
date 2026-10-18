@@ -1,0 +1,5 @@
+Errors:
+Line 7: missing operand
+Line 9: unexpected operand : do need to need any operand for : add
+Line 11: unknown mnemonic
+Line 13: extra on end of line

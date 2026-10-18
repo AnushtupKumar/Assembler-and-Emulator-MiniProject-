@@ -1,0 +1,57 @@
+0000 00000500         ldc 5           
+0001 00000003         stl 0           ; Store N at SP+0 
+0002 00000002 outer:  ldl 0
+0003 00000100         ldc 1
+0004 00000007         sub
+0005 00000003         stl 0           ; N = N - 1
+0006 00000002         ldl 0
+0007 00002b0f         brz done        ; If N == 0, sorting is complete
+0008 00000000         ldc 0           
+0009 00000103         stl 1           ; Store 0 at SP+1 (Inner loop counter j)
+000a 00000102 inner:  ldl 1           ; Load j
+000b 00000002         ldl 0           ; Load N
+000c 00000007         sub             ; j - N
+000d fffff40f         brz outer       ; if j == N, inner loop is done, go to outer
+000e 00003400         ldc array
+000f 00000102         ldl 1
+0010 00000006         add             ; Address of array[j]
+0011 00000004         ldnl 0          ; A = array[j]
+0012 00000203         stl 2           ; Store array[j] at SP+2
+0013 00003400         ldc array
+0014 00000102         ldl 1
+0015 00000006         add             ; A = array + j
+0016 00000100         ldc 1
+0017 00000006         add             ; A = array + j + 1 (Correctly calculated!)
+0018 00000004         ldnl 0          ; A = array[j+1]
+0019 00000202         ldl 2           ; B = array[j+1], A = array[j]
+001a 00000007         sub             ; A = array[j+1] - array[j]
+001b 00000110         brlz swap       ; if array[j+1] < array[j], swap them
+001c 00001111         br next         
+001d 00003400         ldc array
+001e 00000102         ldl 1
+001f 00000006         add             
+0020 00000303         stl 3           ; Store Addr(j) at SP+3
+0021 00003400         ldc array
+0022 00000102         ldl 1
+0023 00000006         add             
+0024 00000100         ldc 1
+0025 00000006         add             
+0026 00000403         stl 4           ; Store Addr(j+1) at SP+4
+0027 00000402         ldl 4
+0028 00000004         ldnl 0          ; A = array[j+1]
+0029 00000302         ldl 3           ; B = array[j+1], A = Addr(j)
+002a 00000005         stnl 0          ; memory[Addr(j)] = array[j+1]
+002b 00000202         ldl 2           ; A = original array[j]
+002c 00000402         ldl 4           ; B = original array[j], A = Addr(j+1)
+002d 00000005         stnl 0          ; memory[Addr(j+1)] = array[j]
+002e 00000102 next:   ldl 1
+002f 00000100         ldc 1
+0030 00000006         add
+0031 00000103         stl 1           ; j = j + 1
+0032 ffffd711         br inner        
+0033 00000012 done:   HALT
+0034 0000002d array:  data 45
+0035 0000000c         data 12
+0036 0000004e         data 78
+0037 00000003         data 3
+0038 00000016         data 22
