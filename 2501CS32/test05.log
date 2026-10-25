@@ -1,0 +1,4 @@
+Errors:
+Line 7: inappropriate label name
+Line 13: duplicate label definition
+Line 16: no such label : missing_lbl

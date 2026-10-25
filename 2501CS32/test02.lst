@@ -1,0 +1,17 @@
+0000 00000500 ldc 5       ; Load x = 5
+0001 00000500 ldc 5       
+0002 00000013 mul         ; A = 25 (x^2)
+0003 00000200 ldc 2       
+0004 00000013 mul         ; A = 50 (2x^2)
+0005 00001000 ldc term1   ; Load address of term1
+0006 00000005 stnl 0      ; Store 50 into memory at term1
+0007 00000500 ldc 5       ; Load x = 5
+0008 00000300 ldc 3       
+0009 00000013 mul         ; A = 15 (3x)
+000a 00001000 ldc term1   
+000b 00000004 ldnl 0      ; Load 50 from term1. B = 15, A = 50
+000c 00000006 add         ; A = 65 (2x^2 + 3x)
+000d 00000400 ldc 4       ; B = 65, A = 4
+000e 00000006 add         ; A = 69 (Final Result)
+000f 00000012 HALT
+0010 00000000 term1: data 0
